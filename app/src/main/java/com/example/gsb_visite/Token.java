@@ -4,11 +4,13 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
+
 public class Token implements Serializable {
     @SerializedName("token")
     private String token;
 
-    private String getToken() {
-        return token;
+    public String getBearerToken() {
+        return "Bearer " + token;
     }
 }
+

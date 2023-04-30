@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Users/domergue.matteo/AndroidStudioProjects/gsb_visite2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.31" />
         <entry key="..\:/Users/domergue.matteo/AndroidStudioProjects/gsb_visite2/app/src/main/res/layout/activity_main.xml" value="0.3220108695652174" />
+        <entry key="..\:/Users/domergue.matteo/AndroidStudioProjects/gsb_visite2/app/src/main/res/layout/activity_visiteur.xml" value="0.3578125" />
+        <entry key="..\:/Users/domergue.matteo/AndroidStudioProjects/gsb_visite2/app/src/main/res/layout/recycler_view_praticiens.xml" value="0.3578125" />
       </map>
     </option>
   </component>

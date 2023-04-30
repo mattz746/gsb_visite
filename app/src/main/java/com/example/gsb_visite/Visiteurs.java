@@ -1,19 +1,18 @@
 package com.example.gsb_visite;
 
+
 import com.google.gson.annotations.SerializedName;
 
-public class Visiteurs {
-    @SerializedName("")
-    private String username;
+import java.io.Serializable;
+import java.util.ArrayList;
 
-    @SerializedName("")
-    private String password;
+public class Visiteurs implements Serializable {
+    @SerializedName("hydra:member") //notation retrofit2
+    private ArrayList<Visiteur> visiteurs;
 
-    @SerializedName("")
-    private String matricule;
-
-    @SerializedName("")
-    private String tel;
+    public ArrayList<Visiteur> getVisiteurs() {
+        return visiteurs;
+    }
 
 
 }
