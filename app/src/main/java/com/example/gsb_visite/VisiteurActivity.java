@@ -11,16 +11,21 @@ import android.widget.Toast;
 import com.example.gsb_visite.databinding.ActivityVisiteurBinding;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class VisiteurActivity extends AppCompatActivity implements Serializable {
+public class VisiteurActivity extends AppCompatActivity {
     private ActivityVisiteurBinding binding;
     private String username, token;
     private Visiteurs visiteurs;
     private Visiteur visiteur;
+
+    private ArrayList<Praticien> dataPraticiens;
+    private RecyclerViewAdapter myAdapterPraticien;
+
 
 
     @Override
@@ -38,7 +43,7 @@ public class VisiteurActivity extends AppCompatActivity implements Serializable 
                 RetrofitClientInstance.getRetrofitInstance().create(GsbVisite.
                         class);
         Call<Visiteurs> call = service.getVisiteurs();
-        return call.enqueue(new Callback<Visiteurs>() {
+        call.enqueue(new Callback<Visiteurs>() {
             @Override
             public void onResponse(Call<Visiteurs> call, Response<Visiteurs>
                     response) {
@@ -52,11 +57,11 @@ public class VisiteurActivity extends AppCompatActivity implements Serializable 
                 binding.textViewVisiteurPrenom.setText(visiteur.getPrenom());
                 binding.txtMatricule.setText(visiteur.getMatricule());
 
-                for (String unPraticienStr : visiteur.getPraticiensStr()){
+                for (String unPraticienStr : visiteur.getPraticiensStr()) {
                     int chaine = unPraticienStr.lastIndexOf("/") + 1;
                     String id = unPraticienStr.substring(chaine);
 
-                    Call<Praticien> praticienCall = service.getPraticiens("Bearer " + token, id );
+                    Call<Praticien> praticienCall = service.getPraticiens("Bearer " + token, id);
                     praticienCall.enqueue(new Callback<Praticien>() {
                         @Override
                         public void onResponse(Call<Praticien> call, Response<Praticien> response) {
@@ -91,6 +96,7 @@ public class VisiteurActivity extends AppCompatActivity implements Serializable 
 
 
             }
+
             @Override
             public void onFailure(Call<Visiteurs> call, Throwable t) {
                 Toast.makeText(VisiteurActivity.this, "Une erreur est survenue !",

@@ -27,7 +27,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public RecyclerViewHolder(@NonNull View itemView){
             super(itemView);
             textViewPraticiensNom = itemView.findViewById(R.id.textViewPraticiensNom);
-            textViewPraticiensPrenom = itemView.findViewById(R.id.textViewPraticiensPrenom);
+            textViewPraticiensPrenom = itemView.findViewById(R.id.textViewPraticienPrenom);
 
         }
 
